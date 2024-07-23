@@ -11,10 +11,10 @@ This task walks through the the inital React project structure, all you have to 
   <ul>
 </h2>
 
-![Alt](./node.png)
+![Alt](./res/node.png)
 
 
-![Alt](./node-v.png)
+![Alt](./res/node-v.png)
 
 # Step 2: Create a React Project.
 
@@ -39,10 +39,10 @@ This task walks through the the inital React project structure, all you have to 
     </ul>
 </h2>
 
-![Alt](./npm_install.png)
+![Alt](./res/npm_install.png)
 
-![Alt](./create_app.png)
+![Alt](./res/create_app.png)
 
-![Alt](./app_start.png)
+![Alt](./res/app_start.png)
 
-![Alt](./app_running.png)
+![Alt](./res/app_running.png)
