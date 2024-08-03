@@ -1,0 +1,1451 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>JavaScript First Steps</title>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css" integrity="sha512-Mjxkx+r7O/OLQeKeIBCQ2yspG1P5muhAtv/J+p2/aPnSenciZWm5Wlnt+NOUNA4SHbnBIE/R2ic0ZBiCXdQNUg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css" integrity="sha512-ITH3NSfntO7uI5n+BnxGNXpzDUoOsmAXuG37UDONLxNYIdc0EBBOOQ1xyc+t9ag9ETSuBXFApx+Rod0uURfDYw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/night.min.css" integrity="sha512-bfCyfT+5Js2CKjpiF7yCtTcNlNTtcdAIHV8DfGLCQuTfTEHTU9uEvhQ/Ty4zv3IRtkFQu8DKeM2MHGka+K/cxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		
+		<!-- Theme used for syntax highlighted code -->
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/night-owl.min.css" integrity="sha512-i5X6Fdn/ZqvGSqPrdMa3FgcpXM/Nr6YccSKFYT93zljl/HZDEpvBbE5Pxp91eiWGccZLrL/LDQJd7fjTRYsVaA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/a11y-dark.min.css" integrity="sha512-Vj6gPCk8EZlqnoveEyuGyYaWZ1+jyjMPg8g4shwyyNlRQl6d3L9At02ZHQr5K6s5duZl/+YKMnM3/8pDhoUphg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+		<style>
+			.reveal code {
+				color: var(--r-link-color-hover);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+					<textarea data-template>
+						## JavaScript First Steps
+					</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="\n--\n">
+					<textarea data-template>
+					### About this course
+
+					- Taking our *first steps* in an infinite journey
+					- Hands-on projects
+					- Just-in-time vs. just-in-case learning 
+
+					--
+					### Grand plan
+
+					<span style="color:var(--r-background-color);">time</span> | Part 1 | Part 2 | Part 3
+					--- | --- | --- | ---
+					topics | DOM <br> datatypes <br>  arrays & objects  | functions <br> events <br> branches & loops |  (a)sync <br> pro syntax <br> bugs & errors
+					project | tic tac toe | quiz game | doggos
+
+					--
+					### Ground rules
+
+					- Everyone belongs here!
+					- There are no "dumb" questions
+					- Growth > Goalposts
+
+					</textarea>
+				</section>
+				<section  data-markdown data-separator-vertical="\n--\n" >
+					<textarea data-template>
+					# Part 1
+
+
+					--
+					### Goals
+
+					- Get hands-on with JS
+					- Explore & modify a web page 
+					- Meet common data types & operators
+					- Declare variables to remember values
+					- Collect values into objects & arrays
+					- Play a Tic-Tac-Toe game in the browser! 
+
+					--
+					### Ready?
+
+					# Let's go!
+
+					</textarea>
+				</section>
+
+				<section data-markdown data-separator-vertical="\n--\n">
+					<textarea data-template>
+					## JavaScript!
+
+					### What? Why? How?
+
+					--
+
+					### What is JS?
+
+					--
+
+					```js
+					let js = {
+						name: "JavaScript",
+						abbreviation: "JS",
+						isAwesome: true,
+						officialSpec: "ECMAScript",
+						birthYear: 1995,
+						creator: "Brendan Eich"
+					};
+
+					if (js.isAwesome) {
+						shout("hell yes JS!");
+					}
+					```
+
+					--
+
+
+					### Why do we need JS? 
+
+					--
+
+					## HTML & CSS & JS: BFFs!
+
+					--
+
+
+					<img src="https://media4.giphy.com/media/3o6gE8sp8lYiUBgx8Y/giphy.gif?cid=ecf05e47qgttnhw10sv7okbd6osgrjh1kb2pubtrdazuwtoi&rid=giphy.gif&ct=g" alt="Hamilton GIF by Tony Awards via Giphy" width=700 />
+					
+					--
+
+
+
+					### How do we write JS? 
+
+					--
+
+
+
+					<img src="https://media1.tenor.com/images/bbb7a06768e4f3c507632383b73eb9a1/tenor.gif?itemid=9213220" alt="Gif of girls performing 'light as a feather, stiff as a board' ritual in 'The Craft'" /> 
+
+
+					--
+
+
+					<img src="http://1.bp.blogspot.com/-mULfDILNkLQ/Uecl0_H_6hI/AAAAAAAAJiI/vR4dwnwrphs/s1600/the-craft-the-craft-20560404-1842-1219.jpg" alt="Still of girls performing summoning ritual in a circle of candles on the beach, from 'The Craft'" />
+
+
+
+					--
+
+
+					### ~~How~~ *Where* do we write JS?
+
+					--
+
+					- **The browser's JS `console`**
+					- Local text file in editor, e.g. TextEdit, [VS Code](https://code.visualstudio.com/)
+					- Online playground e.g. [CodePen](https://codepen.io), [CodeSandbox](https://codesandbox.io)
+
+
+					--
+
+					## Let's do it!
+
+					1. Open [1-tictactoe.html](./1-tictactoe.html) in your browser<br>(`File` > `Open file...`)
+					1. Inspect the page to open DevTools<br>(Right click > `Inspect`)
+					1. Click on `Console` tab
+
+
+					</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="\n--\n" data-auto-animate>
+					<textarea data-template>
+					## The DOM
+
+					### Document Object Model 
+					
+
+					--
+					
+					### A simple `document`
+					
+					```html [ 2-8 | 3 | 4-7 | 5-6]
+					<!DOCTYPE html>
+					<html lang="en-US">
+						<head>...</head>
+						<body>
+							<header>...</header>
+							<div id="board">...</div> 
+						</body>
+					</html>
+					```
+
+					Let's draw the DOM tree! 
+
+					--
+
+					### Reading the DOM with JS
+
+					Let's dig into this `document`!
+
+					--
+
+					```js
+					document
+					```
+
+					<p class="fragment">the entire HTML document</p>
+
+					--
+
+					```js
+					document.title
+					```
+
+					<p class="fragment">the page (document) title</p>
+
+					--
+
+					```js
+					document.body
+					```
+
+					<p class="fragment">the <code>body</code> element</p>
+
+					--
+
+					```js
+					document.body.children
+					```
+
+					<p class="fragment">all the elements within the <code>body</code></p>
+
+				
+
+					--
+
+					```js
+					document.getElementById("board")
+					```
+
+					<div class="fragment" data-fragment-index="2"><pre class="js hljs"><code>document.querySelector("#board")</code></pre></div>
+
+					<p class="fragment" data-fragment-index="1">the (first) element with <code>id="board"</code></p>
+
+					--
+
+					```js
+					document.getElementsByTagName("h1")
+					```
+
+					<div class="fragment" data-fragment-index="2"><pre class="js hljs"> <code>document.querySelectorAll("h1")</code></pre></div>
+
+					<p class="fragment" data-fragment-index="1">all the <code>h1</code> elements</p>
+
+					--
+
+					```js
+					document.getElementsByClassName("player")
+					```
+
+					<div class="fragment" data-fragment-index="2"><pre class="js hljs"><code>document.querySelectorAll(".player")</code></pre></div>
+
+					<p class="fragment" data-fragment-index="1">all the elements with <code>class="player"</code> </p>
+					
+					--
+
+					<pre class="r-fit-text js hljs"><code>document.getElementsByClassName("player").length</code></pre>
+
+					<pre class="r-fit-text js hljs"> <code>document.querySelectorAll(".player").length</code></pre>
+
+					<p class="fragment" >the number of elements with <code>class="player"</code> </p>
+					
+					--
+
+					<pre class="r-fit-text js hljs"><code>document.getElementById("p1-name").textContent</code></pre>
+
+					<p class="fragment">the text inside the element with <code>id="p1-name"</code></p>
+
+
+					--
+
+					### *Do you expect me to remember all this!?!??!*
+
+					<img src="https://gifimage.net/wp-content/uploads/2017/08/overwhelmed-gif-6.gif" alt="Gif of Steve Urkel looking overwhelmed" />
+
+					--
+
+					The three most important letters in web development:
+
+					# ✨MDN✨
+
+					[developer.mozilla.org](https://developer.mozilla.org)
+
+					--
+
+					## Exercise
+
+					Type commands in the console to retrieve: 
+					1. all the `p` elements 
+					1. the text "X"
+					1. the number of squares in the board
+					1. the text "A game you know"
+
+
+					--
+
+
+					### Editing the DOM with JS
+
+					--
+
+					```js
+					document.title = "My Page"
+					```
+
+					<p class="fragment">change the page title</p>
+					<p class="fragment" style="font-style:italic;">note the double-quotes</p>
+
+					--
+					
+					<pre class="r-fit-text js hljs"><code>document.getElementById("p1-name").textContent = "Sofia"</code></pre>
+
+					<p class="fragment">replace the text of the <code>#p1-name</code> element</p>
+
+
+					--
+
+					<pre class="r-fit-text js hljs"><code>document.getElementById("p1-name").append(" & friends")</code></pre>
+
+					<p class="fragment">add to the end of the element's current text</p>
+
+					--
+
+					## Exercise
+
+					1. Change the player names to you & neighbor
+					1. Swap the player symbols
+					1. Change subtitle to "A game you know and love"
+
+
+					</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="\n--\n">
+					<textarea data-template>
+					## Values & Data Types
+
+					--
+
+					### What are these?
+
+					`"Tic Tac Toe"`
+
+					`9`
+					
+					`"#board"`
+
+					--
+
+					# Values
+
+					<p class="fragment">chunks of information we want to work with</p>
+
+					<p class="fragment">that information (data) can be of different types</p>
+
+
+					--
+
+					## text data
+
+					e.g. `"Tic Tac Toe"` or `"#board"`
+
+					<p class="fragment">aka...</p>
+
+					--
+
+					## strings
+
+
+
+					<img src="https://i0.wp.com/www.muffinchanel.com/wp-content/uploads/2020/09/muffinchanel-bracelet-inspiration-pura-vida-inspired-alphabet-bead-bracelets-wax-string-letter-friendship-bracelets-with-seed-beads-4.png?resize=768%2C756&ssl=1" alt="Image of beaded bracelets with letter beads spelling out '❤️', 'LOVE', 'CE❤️', 'ILYSM', 'SASHA', 'BLM', 'HELLO❤️', '❤️PIZZA'" width=500 />
+
+					--
+
+
+					All of these are strings:
+					- `"Hello!"`
+					- `'I like single-quotes'`
+					- <code>\`I ❤️ backticks\`</code>
+					- `'867-5309'`
+					- `"42"`
+
+					--
+
+					## `"42"` vs. `42`
+
+					*are these the same thing?*
+
+					--
+
+					## `typeof`
+
+					tells you the type of a value
+
+					--
+
+					Try it!
+
+					```js
+					typeof "42"
+					```
+
+					```js
+					typeof 42
+					```
+
+					--
+
+					## numbers
+
+					<img src="https://media3.giphy.com/media/OxeCmRsZsXSCI/giphy.gif?cid=790b7611df6245385829b15db4d7ebd2948ea669e07b5fbb&rid=giphy.gif&ct=g" alt="Gif of Count von Count and the Sesame Street muppets dancing and presenting the number 2" />
+
+					--
+
+
+					All of these are numbers:
+
+					- `9`
+					- `525600`
+					- `-3.45`
+					- `1.21e9`
+					- `Infinity`
+
+					--
+
+					### JS has two kinds of data: 
+					- Primitive types (e.g. strings, numbers)
+					- Objects (e.g. `document` & friends)
+
+					--
+
+					## Primitive data types
+
+					- `string`
+					- `number`
+					- `boolean`
+					- `undefined`
+					- `null`
+					- A couple [others](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#primitive_values) we don't need yet
+
+					--
+
+					## booleans
+
+
+					<div style="display:flex">
+						<img src="https://media0.giphy.com/media/dXFKDUolyLLi8gq6Cl/giphy.gif?cid=790b7611e65175eaf20e344bed912deb1bbe1510918127b6&rid=giphy.gif&ct=g" />
+						<img src="https://media3.giphy.com/media/98maV70oAqIZtEYqB4/giphy.gif?cid=790b76119164770fd461651da0b494e09dd0e62870f30c3a&rid=giphy.gif&ct=g" />
+					</div>
+
+					--
+
+					## `undefined` & `null`
+
+					<img src="https://media4.giphy.com/media/RkN1YEwSP4GBvv5bDC/giphy.gif?cid=790b7611f7bab2fa354705ec00978abc19a34b9b64e56d94&rid=giphy.gif&ct=g" alt="Gif of woman gesturing and saying 'blank void of nothingness', from Now Apocalypse on Starz"/>
+
+					--
+
+
+					<div style="display:flex;">
+						<div style="display:flex; flex-direction:column;">
+							<code>undefined</code>
+							<img height=250 src="http://campusriot.com/wp-content/uploads/2013/06/I-Want-It-That-Way-Backstreet-Boys-Gif.gif" alt="Gif of Backstreet Boys singing 'Tell my why, Ain't nothin but a mistake...'" />
+							accidental nothing
+						</div>
+						<div style="display:flex; flex-direction:column;">
+							<code>null</code>
+							<img height=250  src="https://c.tenor.com/AzSrhbW1nYcAAAAC/tenor.gif" alt="Gif of Backstreet Boys singing 'I want it that way'" />
+							deliberate nothing
+						</div>
+					</div>
+
+					--
+
+					### Exercise
+
+					Which data type is each of these values? 
+					- `false`
+					- `"true"`
+					- `document.title`
+					- `"some string".length`
+					- `null`
+					
+					(guess first, then use `typeof` to check!)
+
+					</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="\n--\n">
+					<textarea data-template>
+					## Working with Strings
+					
+
+					<img width=500 src="https://i0.wp.com/www.muffinchanel.com/wp-content/uploads/2020/09/how-to-make-letter-bead-word-alphabet-bead-bracelets-inspired-by-pura-vida-bracelets-muffinchanel-diy-step-by-step-10.png?w=632&ssl=1" alt="Image of unfinished beaded bracelet spelling 'ALOHA' with text 'Step 13' in corner, via MuffinChanel " />
+					
+					--
+
+					 What are strings made of?
+
+					![](https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/61PIxWCLaFL._AC_SY450_.jpg)
+				
+					<h4 class="fragment">characters</h4>
+
+					--
+
+					How many characters are in this string?				
+					
+					<pre class="js">
+						<code>"supercalifragilisticexpialidocious".length</code>
+					</pre>
+
+					```js
+					"super".length
+					```
+
+					--
+
+					Characters are in a specific order
+					
+					Each gets a number, starting at `0`
+
+					<img width=700 height=190 style="object-fit: cover; object-position: 0 -510px;" src="https://i0.wp.com/www.muffinchanel.com/wp-content/uploads/2020/09/how-to-make-letter-bead-word-alphabet-bead-bracelets-inspired-by-pura-vida-bracelets-muffinchanel-diy-step-by-step-7.png?w=631&ssl=1" />
+
+					<p class="fragment">aka an "index"</p>
+				
+					--
+
+					What's the first character in the string? 
+
+					```js
+					"ALOHA"[0]
+					```
+
+					--
+
+
+					What's the third character in the string?
+
+					```js
+					"ALOHA"[2]
+					```
+
+					--
+
+					What's the index of a specific character? 
+
+					<pre class="fragment"><code>"ALOHA".indexOf("L")</code></pre>
+					<pre class="fragment"><code>"ALOHA".indexOf("A")</code></pre>
+					<pre class="fragment"><code>"ALOHA".indexOf("Q")</code></pre>
+
+					--
+
+					Does this string contain some other string?
+
+					<pre class="fragment"><code>"ALOHA".includes("HA")</code></pre>
+					<pre class="fragment"><code>"ALOHA".includes("LOL")</code></pre>
+
+					--
+
+					Does this string start with some other string?
+
+					<pre class="fragment"><code>"ALOHA".startsWith("AL")</code></pre>
+					<pre class="fragment"><code>"ALOHA".startsWith("HA")</code></pre>
+
+
+					--
+
+					At what index does this substring begin? 
+
+
+					<pre class="fragment"><code>"ALOHA".indexOf("HA")</code></pre>
+					<pre class="fragment"><code>"ALOHA".indexOf("LOL")</code></pre>
+
+					--
+
+					Connecting strings together
+
+					```js
+					"ALOHA" + "!"
+					```
+
+					--
+
+					<div style="display:flex;">
+						<img src="https://media0.giphy.com/media/3ohhwr2FHK5u2TZFcI/giphy.gif?cid=790b7611b3d751c8682486f8a5140f1fa2d7c44ba387cfb7&rid=giphy.gif&ct=g" alt="Gif from Schitt's Creek of Alexis looking offended asking 'Why are you yelling at me?!'" />
+						<img src="https://media2.giphy.com/media/UtuJHoRbWW2eb9K8LQ/giphy.gif?cid=ecf05e47hmqd6amklrxj0i3nfbpqlwwpvy7smtfmkqvtzcjw&rid=giphy.gif&ct=g" alt="Gif from Schitt's Creek of Moira looking offended saying 'There's no need to raise your voice'" />
+					</div>
+
+					```js
+					"ALOHA".toLowerCase()
+					```
+
+					--
+
+					### Exercise
+
+					Use our new string superpowers to:
+					- Add your last name in the players listing
+					- Retrieve the first "T" in the page title
+					- Answer whether the page title contains the string "JavaScript"
+					- Capitalize the heading "Tic Tac Toe"
+
+					--
+
+					There is a lot more we can do with strings... 
+
+					<img src="https://media2.giphy.com/media/THrVdFFbwhwxNPxfGi/giphy.gif?cid=ecf05e47hxna43czb0oedyxy295x2ywq34xdo4yjvydqhqcr&rid=giphy.gif&ct=g" alt="Gif of Michaela Coel saying 'Sometimes it gets a bit much'" />
+
+					--
+
+					Remember ✨MDN✨ is your friend!
+
+					[JavaScript > Standard built-in objects > String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+
+
+
+					</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="\n--\n">
+					<textarea data-template>
+					## Operators
+
+					<img src="https://media4.giphy.com/media/YX6YQZfuRN0nC/giphy.gif?cid=ecf05e47qz4szu7ek9s2zbxa7i4e86beyggj5nwytiq27pr4&rid=giphy.gif&ct=g" alt="Gif of Sade singing 'Smooth'" />
+
+					--
+
+					We've already seen a couple of operators: 
+
+					- `"ALOHA" + "!"`
+					- `typeof "value"`
+
+					--
+
+					`+` is an operator with several different uses:
+
+					<ul>
+						<li class="fragment">What does it do when operating on strings?</li>
+						<li class="fragment">Any guess what else it can operate on? </li>
+						<li class="fragment">How many values does it operate on at a time?</li>
+					</ul>
+
+					--
+
+					### Arithmetic operators
+
+					- `+` add
+					- `-` subtract
+					- `*` multiply
+					- `/` divide
+
+					--
+
+					### Order of operations
+
+					`4 + 1 * 2 * 4 + 2`
+
+					same as in math, use `()` to group
+
+					`((4 + 1) * 2 * 4) + 2`
+
+					--
+
+					## Exercise
+
+					Use arithmetic operators to compute:
+					- The total number of siblings of your parents
+					- The average number of hours you slept this week
+					- The number of dogs you'd pet in a week if you pet 1 dog per hour while awake
+
+					--
+
+					### Comparison operators 
+
+					- `&gt;` greater than
+					- `&lt;` less than
+					- `&gt;=` greater than or equal to
+					- `&lt;=` less than or equal to
+
+					--
+
+					`5 &gt; 4`
+
+					What type of value will this return?
+
+					--
+
+					### Equality operators
+
+
+					strict | loosey-<br>goosey | meaning
+					--- | --- | ---
+					`===` | `==` | equals
+					`!==` | `!=` | does not equal
+
+					--
+
+
+					Do these differ? How? 
+
+
+					strict | vs. | loosey-goosey
+					--- | --- | ---
+					`1 === 1` | vs. | `1 == 1`
+					`"1" === "1"` | vs. | `"1" == "1"`
+					`1 === "1"` | vs. | `1 == "1"`
+
+					<p class="fragment">You should almost always use the <b>strict</b> version</p>
+
+					--
+
+					### JS has lots of operators!
+
+					<p class="fragment">Any guesses what else is out there?</p>
+
+					<p class="fragment">Where can you find them all?</p>
+
+					--
+
+					✨MDN✨
+
+					[JavaScript > Expressions & Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators)
+
+
+
+					</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="\n--\n">
+					<textarea data-template>
+					## Expressions
+
+
+					<img src="https://media.tenor.com/images/6bbe631a75e9da8d1c316bf89ed460cc/tenor.gif" alt="Gif of Madonna dancing & singing 'Express Yourself'" />
+
+
+					--
+
+					Are these values? 
+
+					- `4 / 2 * 10`
+					- `"Frontend" + "Masters"`
+					- `5 &gt; 4 !== 3 &gt; 4`
+
+					--
+
+					an expression *evaluates* (aka *resolves*) to a value
+
+					--
+
+					<img src="https://occ-0-1722-1723.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABVQNgd4IpL64y3okatJlrMQUv0RmPmsyFalQ2aNV5G8SLFI4ghuVYMTV-VTLbHA2G9HQ7Gv1x5RIF7zhGf4Ion3IKDP8.jpg?r=4d2" alt="Image from film 'New York Minute' with Mary Kate and Ashley Olsen looking at each other seated in a cab, with title overlay" />
+
+					--
+
+					✨MDN✨
+
+					[JavaScript > JS Guide > Expressions & Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators)
+
+					</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="\n--\n">
+					<textarea data-template>
+					## Variables
+
+					<img src="https://www.surlyhorns.com/board/uploads/monthly_2020_08/iu-2.gif.dff1f3975b6ad925cbb783079c18422b.gif" alt="Gif of Sarah McLachlan singing 'I will remember you'" />
+
+					--
+
+					Variables let us **remember** values 
+
+					```js
+					let remember = "Sept. 21";
+					```
+
+					What do you notice about the line of code above?
+
+					--
+
+
+					### Declaring a variable 
+
+					<img src="https://memeguy.com/photos/images/mrw-i-open-my-credit-card-statement-109160.gif" alt="Gif from 'The Office' of Michael Scott yelling 'I declare... bankruptcy!'" />
+
+					```js
+					let bankruptcy;
+					```
+
+					What do you think is the value of `bankruptcy`?
+
+					--
+
+					### Assigning a variable
+
+					```js
+					let myDeclaredVariable;
+					myDeclaredVariable = "so value, much wow";
+					```
+
+					--
+
+					### Declaring & assigning at once
+
+					```js
+					let myAssignedVariable = "such efficient, amaze";
+					```
+
+					--
+
+					### Declaring & assigning forever
+
+					`const` declares & assigns a "constant" 
+					
+					aka a variable that can't be changed
+
+					```js
+					const myUnchangeableVariable = "Never gonna give you up";
+					```
+					
+					*we'll talk more about this later*
+
+
+					--
+
+					### Using a variable
+
+					`answerToLife - 10` 
+
+					`myDeclaredVariable.toUpperCase()`
+
+					--
+
+					### Variable names 
+
+					- `validVariable`
+					- `also_valid_but_less_common`
+					- `Oddbut_Technicallyfine2`
+					- ~`0chanceThisWillWork!`~
+
+					--
+
+					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/CamelCase_new.svg/640px-CamelCase_new.svg.png" alt="Illustration of a camel with the word 'camelCase' positioned so that the captial C is the camel's hump" />
+						
+					--
+
+					## Exercise
+
+					Declare & assign variables to remember: 
+					- Your name
+					- The combined age of your parents
+					- The `#board` element on the page
+
+					--
+
+					What really **are** variables though??
+
+					--
+
+					variables *contain* values?
+
+					--
+
+					variables ~contain~ *point to* values
+
+					--
+
+					<img src="https://media2.giphy.com/media/3orieSlpoJxbN34HBK/giphy.gif?cid=790b76110319b1d53fe86c88f59f9ebc32b250b97736c438&rid=giphy.gif&ct=g" alt="Gif from the Simpsons of someone pressing the speed dial button on a phone, captioned '(Dialing)'" />
+
+					--
+
+					<img src="https://www.akruto.com/images/how-to-save-and-share-iphone-contacts/add-to-contacts-large.png" alt="Screenshot of an iPhone messaging the number '555-555-5555' with the options to 'Call (555) 555-5555', 'FaceTime Audio', 'Send Message', 'Add to Contacts' highlighted in a red box, 'Copy', 'Cancel'" />
+
+					
+					
+					--
+
+					What happens when this code runs? 
+
+					```js
+					let answerToLife = ((4 + 1) * 2 * 4) + 2;
+					```
+
+					
+					--
+
+					What happens when this code runs?
+
+					```js
+					let scrub = "guy that thinks he's fly";
+					let busta = scrub;
+					scrub = "guy that can't get no love from me";
+					```
+
+					
+					</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="\n--\n">
+					<textarea data-template>
+					## Statements vs. Expressions
+
+					<img src="https://media4.giphy.com/media/55GrSbPv8p4pp5E3vC/giphy.gif?cid=790b7611f3e548491596af24d8df5e50a8b3f5baca55fb77&rid=giphy.gif&ct=g" alt="Gif from HBO's 'Euphoria' of Colman Domingo saying 'I can't tell if that's a statement or a question'" />
+
+					--
+
+					An expression "asks" JS for a value
+
+					```
+					myAssignedVariable
+					6 + 4
+					document.getElementById("board")
+					```
+
+					--
+
+					A statement "tells" JS to do something
+
+					(e.g. declare/assign a variable)
+
+					```
+					let ten = 6 + 4;
+					myDeclaredVariable = "new value";
+					let board = document.getElementById("board");
+					```
+
+					--
+
+					<p class="r-fit-text">We'll see more kinds of statements later in the course</p>
+
+					```js
+					function add(x, y) {
+						return x + y;
+					}
+
+					let biggest;
+					if (5 > 4) {
+						biggest = 5;
+					} else {
+						biggest = 4;
+					}
+
+					for (let character of "string") {
+						console.log(character);
+					}
+					```
+
+					</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="\n--\n">
+					<textarea data-template>
+					## Arrays
+
+					<img src="https://media1.giphy.com/media/KMCapxEUpxTMxhnarh/giphy.gif?cid=ecf05e47gqpnohggvkpijhvkurlz3dkeuxvr28gmxvff0es1&rid=giphy.gif&ct=g" alt="Gif from 'Star Trek Discovery' of Michelle Yeoh saying 'You deserve... many things'" />
+
+
+					--
+
+					Arrays let us keep multiple values together in a single collection
+
+					```js
+					let synonyms = ["plethora", "array", "cornucopia"];
+					```
+
+					<img src="https://media1.giphy.com/media/QfGYYVrbay6kssMrYn/giphy.gif?cid=790b7611dba71cb23b707b58277a0e27b04c0f48f848072c&rid=giphy.gif&ct=g" alt="Gif of Quinta Brunson gesturing and saying 'Plethora, Array, Cornucopia'" />
+
+					--
+
+					Like strings, arrays have a `length`
+					
+					```js
+					synonyms.length
+					```
+
+
+					And each value has an index
+
+					```js
+					synonyms[1]
+					synonyms.indexOf("cornucopia")
+					```
+
+					--
+
+					Also like strings, we can check if an array contains a certain value
+
+					```js
+					synonyms.includes("plethora")
+					synonyms.includes("variety")
+					```
+
+					--
+
+					Unlike strings, we can modify arrays
+
+					```js
+					synonyms[1] = "variety";
+					let lastItem = synonyms.pop();
+					synonyms.push("multitude");
+					```
+
+					What does each of these lines do? Try it out!
+
+					After this code runs, what is `synonyms`? `lastItem`?
+
+					--
+
+					Arrays can be empty, or hold a single item
+
+					```js
+					let emptyArray = [];
+					let oneItemArray = ["lonely"];
+					```
+
+					Arrays can hold any type of items, or mix and match! 
+
+					```js
+					let mixedArray = ["pop", 6, "squish", false, document];
+					```
+
+					--
+
+					Arrays can do lots of useful tricks!
+
+					What do you think each of these does? (Try it!)
+					
+					```js
+					["c", "a", "d", "b"].sort()
+					```
+					
+					<pre class="r-fit-text js hljs"><code>["lions", "tigers", "bears oh my!"].join(" & ")</code></pre>
+					
+					```js
+					[1, 2, 3].concat([4, 5, 6])
+					```
+					
+					--
+
+					
+					Remember ✨MDN✨ is your friend!
+
+					[JavaScript > Standard built-in objects > Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+
+
+
+					</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="\n--\n">
+					<textarea data-template>
+					## Mutating data
+
+					<img src="https://static0.cbrimages.com/wordpress/wp-content/uploads/2017/01/X-Men-Animated-Series.jpg" alt="Image of characters from the animated series 'X-Men' featuring Gambit, Jean Grey, Storm, Wolverine, Cyclops, and Rogue" /> 
+
+					--
+
+					Do these do the same thing? 
+
+					```js
+					let abcArray = ["a", "b", "c"];
+					abcArray[1] = "d";
+					abcArray;
+					```
+
+					```js
+					let abcString = "abc";
+					abcString[1] = "d";
+					abcString;
+					```
+
+					--
+
+					### mutable vs. immutable
+
+					"Mutable" data can be edited (e.g. Arrays)
+
+					"Immutable" data always stays the same (e.g. strings & other primitives)
+
+					--
+
+					Do these do the same thing? 
+
+					```js
+					let numbers1 = [1, 2, 3];
+					let result1 = numbers1.push(4);
+					numbers1;
+					```
+
+					```js
+					let numbers2 = [1, 2, 3];
+					let result2 = numbers2.concat([4]);
+					numbers2;
+					```
+
+					--
+
+					Some actions "mutate" an array (e.g. `oldArray.push(newValue)`)
+
+					...aka change the array *in-place*
+
+					Other actions do *not* mutate the original array, but instead create a new copy (e.g. `oldArray.concat(otherArray)`)
+
+					(you can always use MDN to check which is which!)
+
+					--
+
+					Variables themselves can also be (im)mutable 
+
+					What happens in each case? (Try it!)
+
+					```js
+					let letVariable = "original value";
+					letVariable = "new value";
+					```
+
+					```js
+					const constVariable = "original value";
+					constVariable = "new Value";
+					```
+
+					--
+
+					### immutable *variable* with mutable *value*
+
+					What happens when we use `const` with a mutable value like an array?
+
+					```js [1-2|4-5]
+					const operands = [4, 6];
+					const sum = operands[0] + operands[1];
+
+					operands[0] = 5;
+					const newSum = operands[0] + operands[1];
+					```
+
+					--
+
+					If you have the choice...
+
+					#### Using *immutable* data & variables is usually best
+
+					Why might that be? 
+
+
+					</textarea>
+				</section>
+				
+				<section data-markdown data-separator-vertical="\n--\n">
+					<textarea data-template>
+					## Objects
+
+					We saw an object earlier:
+
+					```js
+					const js = {
+						name: "JavaScript",
+						abbreviation: "JS",
+						isAwesome: true,
+						officialSpec: "ECMAScript",
+						birthYear: 1995,
+						creator: "Brendan Eich"
+					};
+					```
+
+					--
+
+					Objects collect multiple values together to describe more complex data
+
+					Similar to how we can *point at* different values using *variables* in our code,
+
+					objects let us *point at* related values using *properties* in the object.
+
+
+					--
+
+					### Getting property values
+
+					```js
+					js.name
+					```
+
+
+					```js
+					js.isAwesome
+					```
+
+
+					--
+
+					### Using property values
+
+					```js
+					js.name.startsWith("Java")
+					```
+
+					```js
+					let age = 2022 - js.birthYear;
+					```
+
+					--
+
+					### Setting property values
+
+					```js 
+					const indecisive = {
+						lunch: "sandwich"
+					};
+
+					indecisive.lunch = "tacos";
+					indecisive.snack = "chips";
+					```
+
+					--
+
+					### Exercise
+
+					Create an object representing you! 
+
+					Add properties for facts important to you, e.g.: 
+
+					```js
+					const nitin = {
+						name: "Nitin",
+						home: "India",
+						languages: ["English","Hindi","C"],
+						pet: null,
+						vehicle: "Activa",
+						hobbies: ["travel", "climbing", "gaming", "lindy hop"]
+					};
+					```
+
+					--
+
+					### Methods
+
+					Properties can point to functions too 
+
+					We call function-properties "methods" on objects
+
+					```js
+					const dog = {
+						name: "Ein",
+						breed: "Corgi",
+						speak: function () {
+							console.log("woof woof");
+						}
+					}
+
+					dog.speak();
+					```
+
+					
+					--
+
+					`this` in a method lets us reference other properties on the object
+
+					```js
+					nitin.speak = function () {
+						console.log("Hi my name is", this.name);
+					}
+
+					nitin.speak();
+					```
+
+					--
+
+					But be careful with `this`! 
+
+					<img src="https://c.tenor.com/7tgvcDTOfMQAAAAC/tenor.gif" alt="Gif from Friends of Rachel & Phoebe jumping out and yelling 'Danger!' to scare Ross" />
+
+					Its behavior is complicated & can be tricky
+
+					MDN: [JS > Operators > `this`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+
+
+					--
+
+					### Nested objects
+
+					```js
+					const menu = {
+						lunch: {
+							appetizer: "salad",
+							main: "spaghetti",
+							dessert: "tiramisu"
+						},
+						dinner: {
+							appetizer: "samosa",
+							main: "saag paneer",
+							dessert: "gulab jamun"
+						}
+					};
+
+					const tiramisu = menu.lunch.dessert;
+					```
+
+					--
+
+					### Objects in Arrays & Objects
+
+					```js
+					const spices = [
+						{name: "Emma", nickname: "Baby"},
+						{name: "Geri", nickname: "Ginger"},
+						{name: "Mel B", nickname: "Scary"},
+						{name: "Mel C", nickname: "Sporty"},
+						{name: "Victoria", nickname: "Posh"}
+					];
+
+					const spiceGirls = {
+						albums: ["Spice", "Spiceworld", "Forever"],
+						motto: "Girl Power",
+						members: spices
+					};
+					```
+
+					--
+
+					### Exercise
+
+					From the `spiceGirls` object, how can we retrieve: 
+					- `"Girl Power"`
+					- The object representing Ginger Spice
+					- `"Spiceworld"`
+					- `"Victoria"`
+
+					--
+
+					### Built in objects
+
+					Have we worked with any complex objects already?
+
+					What properties & methods have we used already?
+
+
+					--
+
+					### `document`
+
+					```js
+					document.title = "Tic Tac Toe";
+					document.querySelector("h2").append(" and love");				
+					```
+
+					What other properties does `document` have? 
+
+					How can you find out? 
+
+					<a class="fragment" href="https://developer.mozilla.org/en-US/docs/Web/API/Document">✨MDN✨ Web APIs > Document</a>
+
+
+					--
+
+					### `console`
+
+					```js [1-2|4-5|7]
+					console.log("hello coder!");
+					console.log(document.querySelector("h1").textContent);
+
+					console.warn("something seems iffy");
+					console.error("oh no, it broke!");
+
+					console.clear();
+					```
+
+					<a class="fragment" href="https://developer.mozilla.org/en-US/docs/Web/API/Console">✨MDN✨ Web APIs > console</a>
+
+
+					--
+
+					### `Math`
+
+					```js
+					let randomNumber = Math.random();
+					const pi = Math.PI;
+					const five = Math.abs(-5);
+					```
+
+					<a class="fragment" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math">✨MDN✨ JS > Standard built-in objects > Math</a>
+
+					--
+
+					### strings? 
+
+					Strings are *primitive values* (not objects) 
+
+					but JS automatically wraps them in `String` objects 
+
+					```js
+					const hello = "hello";
+					console.log(hello.length);
+					const yello = hello.toUpperCase();
+					```
+
+					[✨MDN✨ JS > Standard built-in objects > String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+
+					--
+
+					### ...and many more!
+
+					Remember ✨MDN✨ is your friend!
+
+					[JavaScript > Standard built-in objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
+
+					
+					</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="\n--\n">
+					<textarea data-template>
+					## Let's play Tic Tac Toe!
+
+					1. Set up the players
+						- Create a `players` array containing 2 objects, one representing each player
+						- Each object should store the player's `name` and `symbol` (X or O)
+						- Display each player's name in the appropriate element in the page
+
+					--
+
+					2. Play!
+						- Take turns placing symbols in the board
+						- On each turn: 
+							- Retrieve the square you want to play in
+							- Set the square's text to your player's symbol
+
+					
+
+					</textarea>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js" integrity="sha512-131e3mIrDAyUD075SVzvIjS0g97uDg0+/qAobDHd++h+lgFi4z88DVOpidm06jpb+0PzK4kcm9w79r6EHV0SkA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.min.js" integrity="sha512-nLsCkPS/rdxRVOkxiKnld9KhQ24V/5kRChzSZ3MoFODykbWyBlQRsHLrbpN3J4LabYBnXIp1EnRIo3ifvyiQIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.min.js" integrity="sha512-QAU7Ux8iEB53koLKFCtddfFp0D1+uQWoX3ROnRDLeiE98XHOkMciaup0Spc014jQAuJaqz8VjUZdBqriheI4Lg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.min.js" integrity="sha512-U3fPDUX5bMrn1wnYqjaK44MFA9E6MKS+zPAg9WPAGF5XhReBeDj3FGaA831CjueG+YJxYA3WaO/m33kMIoOs/A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+		<!-- CopyCode plugin for copy button on code samples -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-copycode@1.0.4/plugin/copycode/copycode.js"></script>
+		
+		<script>
+			// Slides powered by revealjs.com
+			
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, CopyCode ]
+			});
+		
+		</script>
+
+	</body>
+</html>
