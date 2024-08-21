@@ -1,0 +1,1026 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>JavaScript First Steps</title>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css" integrity="sha512-Mjxkx+r7O/OLQeKeIBCQ2yspG1P5muhAtv/J+p2/aPnSenciZWm5Wlnt+NOUNA4SHbnBIE/R2ic0ZBiCXdQNUg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css" integrity="sha512-ITH3NSfntO7uI5n+BnxGNXpzDUoOsmAXuG37UDONLxNYIdc0EBBOOQ1xyc+t9ag9ETSuBXFApx+Rod0uURfDYw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/night.min.css" integrity="sha512-bfCyfT+5Js2CKjpiF7yCtTcNlNTtcdAIHV8DfGLCQuTfTEHTU9uEvhQ/Ty4zv3IRtkFQu8DKeM2MHGka+K/cxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		
+		<!-- Theme used for syntax highlighted code -->
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/night-owl.min.css" integrity="sha512-i5X6Fdn/ZqvGSqPrdMa3FgcpXM/Nr6YccSKFYT93zljl/HZDEpvBbE5Pxp91eiWGccZLrL/LDQJd7fjTRYsVaA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/a11y-dark.min.css" integrity="sha512-Vj6gPCk8EZlqnoveEyuGyYaWZ1+jyjMPg8g4shwyyNlRQl6d3L9At02ZHQr5K6s5duZl/+YKMnM3/8pDhoUphg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+		<style>
+			.reveal code {
+				color: var(--r-link-color-hover);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+					<textarea data-template>
+						## JavaScript First Steps
+					</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="\n--\n">
+					<textarea data-template>
+					# Part 2
+
+					--
+
+					### Goals
+
+					- Write JS in an HTML file
+					- Use functions to perform actions
+					- Handle events to react to user behavior
+					- Use conditionals to decide what to do when
+					- Use loops to repeat actions multiple times
+					- Make our own quiz game! 
+
+					--
+					
+					### Ready?
+
+					# Let's go!
+
+					</textarea>
+				</section>
+				
+				<section data-markdown data-separator-vertical="\n--\n">
+					<textarea data-template>
+					## Pop Quiz!
+
+					Let's put our knowledge so far to the test!
+
+					[JS Quiz](./2-jsquiz-fancy.html)
+
+					</textarea>
+				</section>
+				
+				<section data-markdown data-separator-vertical="\n--\n">
+					<textarea data-template>
+					## Writing JS in HTML
+
+					--
+
+					*Where* do we write JS?
+
+					- The browser's JS `console`
+					- **Local text file in editor, e.g. TextEdit, [VS Code](https://code.visualstudio.com/)**
+					- Online playground e.g. [CodePen](https://codepen.io), [CodeSandbox](https://codesandbox.io)
+
+					--
+
+					### Let's do it!
+
+					- Go to [2-jsquiz-starter.html](./2-jsquiz-starter.html)
+					- Save the HTML file (Right click > "Save file as...")
+					- Open it in your text editor of choice
+
+					--
+
+					### Where in the HTML doc does our JS live? 
+
+					--
+
+					### `script` element 
+
+					MDN: [HTML > script](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
+
+					--
+
+					What is all this about?
+
+					```js 
+					// TODO some instructions here
+					```
+
+					--
+
+					### comments 
+
+					Start with `//` 
+
+					Help others (and yourself) understand your code
+
+					Help keep track of things you want to do
+
+					--
+
+					We'll gradually work through these TODOs to make our own quiz!
+
+					--
+
+					### Exercise
+
+					Follow the first 3 `TODO` comments to review skills we've covered so far: 
+					- declare `statement`, `optionButtons`, and `explanation` variables with their corresponding element(s)
+					- create a `facts` object representing one true/false fact you've learned about JS
+					- use the `statement` element to display your fact
+
+					</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="\n--\n">
+					<textarea data-template>
+					## Functions
+
+					<img src="https://c.tenor.com/wlflMOYNSHAAAAAC/tenor.gif" alt="Gif of Kim Kardashian looking weary and saying 'I'm just so tired, I can't even, like, function'" />
+
+					--
+
+					values *are* things
+
+					variables *point to* things
+
+					functions *do* things
+
+					--
+
+					declaring (creating) a function:
+
+					```js
+					function half(x) {
+						return x / 2;
+					}
+					```
+
+					calling (using) a function:
+
+					```js
+					const one = half(2);
+					```
+
+					
+					--
+
+					### Parameters & Arguments
+
+					Some functions need more than one value to work
+
+					```js
+					function add(x, y) {
+						return x + y;
+					}
+
+					add(2,3);
+					```
+
+					--
+
+					Some functions don't even need any values
+
+					```js
+					function getRandomNumber() {
+						return Math.random();
+					}
+
+					getRandomNumber();
+					```
+
+					--
+
+					*parameters* are the inputs a function expects
+
+					```js
+					function add3(x, y, z) {
+						console.log("My parameters are named x, y, z");
+						console.log("I received the arguments", x, y, z);
+						return x + y + z;
+					}
+
+					const sum = add3(4,5,6);
+					```
+
+					*arguments* are the actual values the function is called with
+
+					--
+
+					Parameters should be named like variables, and behave like variables within the function body
+
+
+					```js
+					function doesThisWork("literally a value") {
+						return true;
+					}
+					```
+
+					```js
+					function howAboutThis(1weirdVariable!) {
+						return true;
+					}
+					```
+
+					--
+
+					What happens if we don't call a function with the intended argument(s)?
+
+					```js
+					add3(1,2)
+					```
+
+					```js
+					getRandomNumber("unexpected")
+					```
+
+					--
+
+					JS is pretty "loosey-goosey" about missing/extra arguments
+
+					<img src="https://media1.giphy.com/media/xT5LMrKFVsJgFUOYQE/giphy.gif?cid=ecf05e47s46qeptt34w3cy6vrnlz7nul0i1hxjios4dhmszr&rid=giphy.gif&ct=g" alt="Gif of Bart Simpson saying 'No arguments here'" />
+
+					What happens depends on your particular code
+
+					--
+
+					### Return values
+
+					A `return` statement specifies the function's output value
+
+					```js
+					function square(x) {
+						return x * x; 
+					}
+
+					const nine = square(3);
+					```
+
+
+					--
+
+					Some functions don't `return` anything
+
+
+					```js
+					function sayHello(name) {
+						console.log("Oh hi, " + name + "!");
+					}
+					```
+
+					```js
+					sayHello("Marc");
+					```
+
+					
+
+					<img src="https://c.tenor.com/oloEJn1kezQAAAAC/tenor.gif" alt="Gif from 'The Room' of Tommy Wiseau saying 'Oh hi Mark'" />
+
+					--
+
+					What value is returned when there's no `return`?
+
+					```js
+					const hm = sayHello("Marc");
+					```
+
+					<code class="fragment">undefined</code>
+
+					--
+
+					### Exercise
+
+					In the console, declare the following functions: 
+					- `multiply`: given 2 numbers, return their product
+					- `yell`: given a lowercase string, log it in all caps to the console
+					- `longerThan`: given 2 arrays, return whether the first is longer than the second
+
+					--
+
+					## Arrow functions
+
+					<img src="https://media0.giphy.com/media/12M3HgyA9ge4z6/giphy.gif?cid=ecf05e47bpbror0fcrdiai9hsxvkafhj5juk0fhtq55x1eqh&rid=giphy.gif&ct=g" alt="Gif of Katniss Everdeen drawing a bow" />
+
+					--
+
+					The `=>` "fat arrow" lets us create an unnamed function without much code
+
+					```js
+					(x, y) => x + y
+					```
+
+					aka an *arrow function*
+
+					--
+
+					Since arrow functions are expressions, we can assign them to a variable
+
+					```js
+					const add = (x, y) => x + y;
+					```
+
+					is equivalent to
+
+					```js
+					function add(x, y) {
+						return x + y;
+					}
+					```
+
+					--
+
+					Arrow functions are great when we just want to return a value
+
+					```js
+					function square(x) {
+						return x*x;
+					}
+					```
+
+					vs.
+
+					```js
+					const square = (x) => x*x; 
+					```
+
+					--
+
+					For one-parameter functions, parentheses are optional 
+
+					```js
+					x => x*x
+					```
+					```js
+					(x) => x*x
+					```
+					--
+
+					For multiple parameters, parentheses are required 
+
+					```js 
+					(firstName, lastName) => firstName + " " + lastName
+					```
+
+					--
+
+					If we need to do more than just return a value, 
+					
+					we can use curly braces for a "normal" function body
+
+					In that case, we still need a `return`
+
+					```js
+					const addAndLog = (x, y) => {
+						let sum = x + y; 
+						console.log('The sum is', sum);
+						return sum;
+					}
+					```
+
+					--
+
+					### Exercise
+
+					In the console, declare the following functions *using arrow functions*:
+					- `divide`: given 2 numbers, return the first divided by the second
+					- `whisper`: given an uppercase string, log it in all lowercase to the console
+					- `shorterThan`: given 2 arrays, return whether the first is shorter than the second
+
+
+					--
+
+					### Exercise
+
+					In the JSQuiz starter, follow TODOs 4 & 5 to 
+					- declare functions to disable or enable a button
+					- declare `isCorrect(guess)` function that compares a guess string to your fact's answer string
+
+					</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="\n--\n">
+					<textarea data-template>
+					## Scope
+
+
+					<img src="https://media1.giphy.com/media/fXtGlVSI2ZB2E1JO0b/giphy.gif?cid=790b7611315f7df8f7217d5e72891ab188485e8bde837cec&rid=giphy.gif&ct=g" alt="Gif from Schitt's Creek of David saying 'There are so many variables still in play'" />
+
+					--
+
+					In JS it doesn't just matter *what* variables we declare
+
+					It also matters *where* we declare them
+
+					*Scope* determines where variables are "in play"
+
+					--
+
+
+
+					```js
+
+					function declareBankruptcy() {
+						let bankruptcy = true;
+					}
+
+					declareBankruptcy();
+					console.log(bankruptcy);
+
+					```
+					--
+
+					Scopes are *nested* within the program
+
+					The widest scope is the **global** scope
+
+					Each function gets its own new scope within the scope where it was declared
+
+					
+
+					--
+
+
+					```js
+
+					let planet = "Jupiter";
+					
+					function scopeOut() {
+						let planet = "Mars";
+						console.log("Inner planet:", planet);
+					}
+
+					scopeOut();
+					console.log("Outer planet:", planet);
+
+					```
+
+
+					
+					--
+
+					Within each scope, you can access variables declared in a *wider* scope (e.g. global scope)
+
+					But not those declared in a *narrower* scope (e.g. function scope)
+
+
+					--
+
+					```js
+
+					let globalVariable = "I live in global scope"; 
+
+					function narrowerScope() {
+						console.log(globalVariable);
+						let localVariable = "I live in the function scope";
+					}
+
+					narrowerScope();
+					console.log(localVariable);
+
+					```
+
+					
+
+					--
+
+					Variables declared with `let` can be modified from within a narrower scope
+
+					This can be useful, but also dangerous!
+
+					--
+
+					```js
+					let feeling = "free";
+
+					function trap() {
+						feeling = "boxedIn";
+					}
+
+					trap();
+					console.log(feeling);
+
+					```
+
+
+					
+
+					</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="\n--\n">
+					<textarea data-template>
+					## Events & Handlers
+
+					Let's make our web page *interactive*!
+
+					--
+
+					Our page right now...
+
+					<img src="https://media1.giphy.com/media/ZDhPlli6gMh44/giphy.gif?cid=ecf05e478swcfzov8jtvntlzmxlve3eorzddk5dsawtt6zw0&rid=giphy.gif&ct=g" alt="Gif of MC Hammer dancing with text 'cant touch this'" />
+
+					--
+
+					The web browser fires *events* when certain things happen on the page
+
+					For example, when the user clicks somewhere on the page, a `click` event is fired
+
+					--
+
+					<img src="https://media4.giphy.com/media/W697Pbn9a0i9qhgE8v/giphy.gif?cid=ecf05e47ljpmw4010cdaaok2nvgf7k1tc8pxmowy3htm6zai&rid=giphy.gif&ct=g" alt="Gif of Janelle Monae saying 'You need to handle it'" />
+
+					--
+
+					We can detect events with JS using an *event listener*
+
+					The `.addEventListener()` method lets us listen for events on a DOM element
+
+					```js
+					document.addEventListener("click", () => {
+						console.log("clicked")
+					});
+					```
+
+					--
+
+					`.addEventListener()` takes 2 parameters: 
+					
+					- The name of the event to listen to (e.g. `"click"`)
+					- A *handler* function that JS calls when that event is fired on this element
+
+					--
+
+					<img src="https://media0.giphy.com/media/3ofT5PzM67qEoeihmo/giphy.gif?cid=790b7611c943e9ecab6d1f151c11c47a8cbb42b8952d8c3e&rid=giphy.gif&ct=g" alt="Gif from Twin Peaks of Kyle MacLachlan saying 'I can handle that'" />
+					
+					--
+
+					We can do basically whatever we want in the handler function
+
+					<iframe height="400" style="width: 100%;" scrolling="no" title="Exciting" src="https://codepen.io/vakila/embed/VwxmmeY?default-tab=result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+						See the Pen <a href="https://codepen.io/vakila/pen/VwxmmeY">
+						Exciting</a> by Anjana Sofia Vakil (<a href="https://codepen.io/vakila">@vakila</a>)
+						on <a href="https://codepen.io">CodePen</a>.
+					  </iframe>
+
+
+					--
+
+
+					JS passes an `event` object to the handler function with information about the event 
+
+					If we accept this as a parameter, we can use it to get details
+
+
+					```js
+					document.addEventListener("click", (event) => {
+						console.log(event);
+					});
+					```
+
+					
+					--
+
+					`event.target` is the element the event fired on 
+
+					(in this case, which element was clicked)
+
+					```js
+					document.addEventListener("click", (event) => {
+						console.log(event.target);
+					});
+					```
+					--
+
+					["click"](https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event) isn't the only type of event we can handle
+
+					- ["dblclick"](https://developer.mozilla.org/en-US/docs/Web/API/Element/dblclick_event)
+					- ["mouseover"](https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseover_event)
+					- ["mouseout"](https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseout_event)
+
+					...and *lots* [more](https://developer.mozilla.org/en-US/docs/Web/Events)!
+
+					--
+
+					### Exercise 
+
+					In the console, on our quiz add event listeners to the buttons so that:
+					- When the "true" button is clicked, the button's text becomes "clicked true"
+					- When the "false" button is clicked, the "explanation" div text becomes "clicked false"
+
+					--
+
+					<img src="https://media2.giphy.com/media/mEnING9BFDAzgHo5L4/giphy.gif?cid=ecf05e47vq2sb8v2m5ukm0a7o1ephsjgrxu7a7u0ti3i0zur&rid=giphy.gif&ct=g" alt="Gif from Scandal of Kerry Washington saying 'It's handled'" />
+
+
+
+					</textarea>
+				</section>
+				
+				<section data-markdown data-separator-vertical="\n--\n">
+					<textarea data-template>
+					## Loops
+
+					<img src="https://media0.giphy.com/media/URkVaXX4cubqCxLYma/giphy.gif?cid=ecf05e47mckio5pnqpbq2q8lkvxtqfmcqe62tu7ago8mvunb&rid=giphy.gif&ct=g" alt="Gif from Schitt's Creek of Alexis saying 'I've done it before and I can do it again'" />
+
+					--
+
+					*Loops* let us run the same chunk of code multiple times 
+
+					```js
+					for (let rep = 0; rep < 10; rep += 1) {
+						console.log("now doing rep", rep);
+					}
+					console.log("do you even lift bro");
+					```
+
+					this is called *iteration*
+
+					--
+
+					`for` loops require us to:
+					- declare & initialize a loop counter
+					- give a condition for the loop to keep running
+					- describe how to change (usually increment) the counter each time
+					
+					```js
+					for (let count = 0; count <= 100; count += 10) {
+						console.log(count);
+					}
+					```
+
+					--
+
+					<img src="https://media1.giphy.com/media/C4wDXSJjt0ZKU/giphy.gif?cid=ecf05e47vg5plioh9ysxznuqqbqh0ub7kf7zqonf4jmxdgo6&rid=giphy.gif&ct=g" alt="Gif of Avril Lavigne singing 'Whyd you have to go and make things so complicated'" />
+
+					--
+
+					`for ... of` loops let us more easily iterate over items in a collection 
+
+					```js
+					const numbers = [1,2,3];
+
+					for (let i = 0; i < numbers.length; i++) {
+						console.log(numbers[i]);
+					}
+
+					for (let n of numbers) {
+						console.log(n);
+					}
+					```
+					--
+
+
+					We can use `for...of` to iterate over characters in a string
+
+					```js
+					for (let char of "ALOHA") {
+						console.log(char);
+					}
+					``` 
+
+					or items in an array 
+
+					```js
+					for (let item of ["pop", 6, "squish"]) {
+						console.log(typeof item);
+					}
+					```
+
+					because strings & arrays are "iterables"
+
+					--
+
+					### Exercise
+
+					In our quiz, follow TODOs 6 & 7 to
+					- Use a `for...of` loop to attach an event listener to each button
+					- Within the event handler, 
+					  - populate the `explanation` text in the given element
+					  - Use another `for...of` loop to disable all the buttons
+
+
+					--
+
+					### `map`  & `filter`
+
+					The `map`  & `filter` methods also let us process all the items in an array
+
+					<img width="600" src="https://static.observableusercontent.com/files/2f820ed5e9c8ce56f07504c382b6c126805d04edf297aaebf57f4c8c10a28556e185f26ca4a87f024182257cf6d2a8a2b31cf85d81d4fa871626715e0f16eab4" alt="Illustration of filter, map, reduce to make a sandwich" />
+
+					--
+
+					`map` calls a function on each item in an array to create a new array
+
+					```js
+					const spices = [
+						{name: "Emma", nickname: "Baby"},
+						{name: "Geri", nickname: "Ginger"},
+						{name: "Mel B", nickname: "Scary"},
+						{name: "Mel C", nickname: "Sporty"},
+						{name: "Victoria", nickname: "Posh"}
+					];
+
+					const nicknames = spices.map(s => s.nickname + " Spice");
+					```
+
+					Arrow functions are useful for this!
+
+					--
+
+					String templates are useful too! Make them with backticks and `${}`, e.g.
+
+					<pre>`string to insert ${variable} into`</pre>
+
+					```js
+					s => `${s.nickname} Spice`;
+					```
+
+					is equivalent to
+
+					```js
+					s => s.nickname + " Spice"
+					```
+
+					--
+
+					`filter` calls a true/false function on each item
+
+					and creates a new array with only the items where the function returns true
+
+					```js
+					const mels = spices.filter(s => s.name.includes("Mel"));
+					```
+
+
+					--
+
+					### Exercise
+
+					From the `spices` array, use `map` and `filter` to: 
+					- create a new array `names` with only the name of each girl
+					- create a new array `endInY` with just the girls whose nickname ends in "y"
+				
+
+					--
+
+					### Spread (`...`)
+
+					Is another neat trick for iterating over arrays
+
+					<img src="https://media0.giphy.com/media/xT9KVsiqNp3MBkJnZC/giphy.gif?cid=ecf05e474esc5ba5hgxi03xuxpqzi3xksb1inywustews7xi&rid=giphy.gif&ct=g" alt="Gif from Mean Girls of Regina George spreading copies of the Burn Book around school" />
+
+					It lets us take all the items in an array and spread 'em around 
+
+					--
+
+					We can use it to put all the items from one array inside another array
+
+					```js
+					const oldBurns = ["square", "wack"];
+					const newBurns = ["basic", "dusty", "sus"];
+					const burnBook = [...oldBurns, ...newBurns];
+					```
+
+					equivalent to
+					```js
+					const burnBook = oldBurns.concat(newBurns);
+					```
+
+					--
+
+					We can also use it to pass all the items from an array as arguments to a function or method 
+
+					```js
+					const skills = ["HTML", "CSS", "JS"];
+					const newSkills = ["React", "TypeScript", "Node"]
+					skills.push(...newSkills);
+					console.log(...skills);
+					```
+
+					</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="\n--\n">
+					<textarea data-template>
+					## Conditionals
+
+
+					<img src="https://media1.giphy.com/media/XsRTNACoT5BaU/giphy.gif?cid=790b7611cabc3a3590355172e163ce60e6ec5654f7be492b&rid=giphy.gif&ct=g" alt="Gif of the Spice Girls singing 'If you wannabe my lover you gotta get with my friends" />
+
+
+					--
+					
+					`if` statements let us execute code under a certain *condition*
+
+					```js
+					const you = {wannaBeMyLover: true};
+					if (you.wannaBeMyLover) {
+						you.gottaGetWithMyFriends = true;
+					}
+					```
+					code in the `if` block only runs if the `(condition)` is true 
+
+					--
+
+
+					we can use `else` to run other code if `(condition)` is false
+
+					```js
+					if (you.reallyBugMe) {
+						console.log("Goodbye");
+					} else {
+						console.log("Hello");
+					}
+					```
+
+					--
+
+					What will happen when this code runs? 
+
+					```js
+					if (5 > 4) {
+						console.log("greater than");
+					} else {
+						console.log("less than");
+					}
+					```
+
+					--
+
+					We can chain `else` and `if` blocks to account for multiple conditions 
+					
+					```js
+					function compare(x, y) {
+						if (x > y) {
+							console.log(x, "is greater than", y);
+						} else if (x < y) {
+							console.log(x, "is less than", y);
+						} else {
+							console.log(x, "is equal to", y);
+						}
+					}
+					```
+
+					--
+
+					The `(condition)` is usually an expression that evaluates to a boolean 
+
+					```js
+					if (forecast === "rain") {
+						console.log("bring an umbrella");
+					}
+					```
+					--
+
+					If it's given some other value, JS will convert it to a boolean
+
+					and decide based on its "truthiness"
+
+					```js
+					if ("nonempty strings are truthy") {
+						console.log("this line will run");
+					}
+					```
+					--
+
+					```js
+					if (0) {
+						console.log("zero is truthy");
+					} else {
+						console.log("zero is falsy");
+					}
+					```
+				
+					--
+
+					### Exercise
+
+					- Write a conditional that logs a message saying whether your first name or last name is longer
+					- Write a function `isEmpty(array)` that returns whether a given array is empty or not
+					- Is an empty array truthy or falsy? Write a conditional to find out
+
+					--
+
+					### Boolean (logical) operators
+
+					Sometimes we care about the opposite of a value
+
+					```js
+					let someoneIsAroundYou = false; 
+					if (!someoneIsAroundYou) {
+						console.log("baby I love you");
+					}
+					```
+
+					The `!` operator negates a boolean (gives its opposite)
+
+					--
+
+					Sometimes we care about the truthiness of more than one value
+
+					```js 
+					if (you.happy && you.knowIt) {
+						you.clapHands();
+					}
+					```
+
+					--
+
+					*Logical operators* let us make two boolean values become one
+
+					<img width=400 src="https://d4q8jbdc3dbnf.cloudfront.net/release/l/331c003f30bd4cdfda4aa3efc9b3ec53.jpg" alt="Cover image of Spice Girls single '2 become 1'" />
+
+					--
+
+					Logical "and" (`&&`) requires both values to be truthy
+
+
+					`A` | `B` | `A && B`
+					-- | -- | -- 
+					`true` | `true` | `true`
+					`true` | `false` | `false`
+					`false` | `true` | `false`
+					`false` | `false` | `false`
+
+					--
+
+					Logical "or" (`||`) requires only one value to be truthy
+
+
+					`A` | `B` | `A \|\| B`
+					-- | -- | -- 
+					`true` | `true` | `true`
+					`true` | `false` | `true`
+					`false` | `true` | `true`
+					`false` | `false` | `false`
+
+					--
+
+					### Conditional ternary operator
+
+					JS also has a "shortcut" operator for writing quick conditionals
+
+					it needs 3 values to work: 
+
+					```js
+					condition ? valueIfTrue : valueIfFalse;
+					```
+
+					--
+
+					```js
+					let mood = forecast === "sunny" ? "happy" : "sad";
+					```
+					
+					is equivalent to 
+
+					```js
+					let mood;
+					if (forecast === "sunny") {
+						mood = "happy";
+					} else {
+						mood = "sad";
+					}
+					```
+					--
+
+					### Exercise
+					
+					In our Quiz, follow TODO 8 to complete the event handler function:
+					- Get the guessed value, i.e. value of whichever button was clicked
+					- Compare the guessed value to the real answer using your `isCorrect` function
+					- Use a conditional to add the "correct" or "incorrect" class to the clicked button
+
+					`element.classList.add("classname")` lets you add a CSS class
+				  
+
+					</textarea>
+				</section>
+				<section data-markdown data-separator-vertical="\n--\n">
+					<textarea data-template>
+					## Great job!!
+
+					<img src="https://media4.giphy.com/media/d20PG6M6SAFqtmce9r/giphy.gif?cid=ecf05e47yl9p8h13npheakz6i358m6dnmcyg39yxcmiqbyru&rid=giphy.gif&ct=g" alt="Gif from Schitt's Creek of David saying 'Look at you go'" />
+					 
+					</textarea>
+				</section>
+				
+			</div>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js" integrity="sha512-131e3mIrDAyUD075SVzvIjS0g97uDg0+/qAobDHd++h+lgFi4z88DVOpidm06jpb+0PzK4kcm9w79r6EHV0SkA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.min.js" integrity="sha512-nLsCkPS/rdxRVOkxiKnld9KhQ24V/5kRChzSZ3MoFODykbWyBlQRsHLrbpN3J4LabYBnXIp1EnRIo3ifvyiQIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.min.js" integrity="sha512-QAU7Ux8iEB53koLKFCtddfFp0D1+uQWoX3ROnRDLeiE98XHOkMciaup0Spc014jQAuJaqz8VjUZdBqriheI4Lg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.min.js" integrity="sha512-U3fPDUX5bMrn1wnYqjaK44MFA9E6MKS+zPAg9WPAGF5XhReBeDj3FGaA831CjueG+YJxYA3WaO/m33kMIoOs/A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+		<!-- CopyCode plugin for copy button on code samples -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-copycode@1.0.4/plugin/copycode/copycode.js"></script>
+		
+		<script>
+			// Slides powered by revealjs.com
+			
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, CopyCode ]
+			});
+		
+		</script>
+	</body>
+</html>
